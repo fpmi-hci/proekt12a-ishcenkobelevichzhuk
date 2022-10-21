@@ -38,7 +38,6 @@ case class EmailNotificationService[F[+_]: Async: Monad: MonadError[*[_], Throwa
 
   private def beautifulProduct(product: ProductReadDomain): String = {
     s"""====================================================
-       |
        |- Name: ${product.name.value}
        |    -- Category: ${product.category.toString}, 
        |    -- Price: ${product.price} $$, 
