@@ -27,3 +27,9 @@ ENV PATH="/ops/sbt/bin:$PATH"
 #install postgres client
 RUN apt-get install -q -y postgresql-client
 
+COPY ../../ supplier_portal
+
+WORKDIR supplier_portal
+
+RUN ["sbt run"]
+
