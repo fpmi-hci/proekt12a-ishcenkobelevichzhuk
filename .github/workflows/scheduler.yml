@@ -24,7 +24,7 @@ jobs:
           cache: 'sbt'
 
       - name: Check Scala version
-        run: scala --version && sbt --version
+        run: sbt --version
 
       - name: Run tests
         run: sbt test
