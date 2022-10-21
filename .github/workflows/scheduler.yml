@@ -1,0 +1,26 @@
+name: Scheduler-CI
+
+on:
+  push:
+    - 'scheduler/**'
+  pull_requests:
+    - 'scheduler/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+          cache: 'sbt'
+      - name: Check Scala version
+        run: scala --version && sbt --version
+      - name: Run tests
+        with:
+          working-directory: scheduler
+        run: sbt test
