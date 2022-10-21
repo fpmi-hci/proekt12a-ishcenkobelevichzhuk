@@ -73,7 +73,7 @@ object AppContext {
       deliveryRepository     = DeliveryRepository.of(tx)
       categoryRepository     = CategoryRepository.of(tx)
 
-      productKafkaProducerService <- initKafkaProducerService(conf)
+      //productKafkaProducerService <- initKafkaProducerService(conf)
 
       authenticationService = AuthenticationService.of(userRepository)
       productGroupService   = ProductGroupService.of(productGroupRepository, userRepository, productRepository)
@@ -81,8 +81,8 @@ object AppContext {
         productRepository,
         supplierRepository,
         orderRepository,
-        categoryRepository,
-        productKafkaProducerService
+        categoryRepository//,
+        //productKafkaProducerService
       )
       subscriptionService = SubscriptionService.of[F](subscriptionRepository, supplierRepository, categoryRepository)
       orderService        = OrderService.of(orderRepository, productRepository)

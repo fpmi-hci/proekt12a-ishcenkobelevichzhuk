@@ -29,7 +29,7 @@ object ProductService {
     supplierRepository:          SupplierRepository[F],
     orderRepository:             OrderRepository[F],
     categoryRepository:          CategoryRepository[F],
-    productKafkaProducerService: KafkaProducerService[F, String, UUID]
+    //productKafkaProducerService: KafkaProducerService[F, String, UUID]
   )(
     implicit logHandler: LogHandler[F]
   ): ProductService[F] = {
@@ -38,8 +38,8 @@ object ProductService {
       supplierRepository,
       orderRepository,
       categoryRepository,
-      logHandler,
-      productKafkaProducerService
+      logHandler//,
+      //productKafkaProducerService
     )
   }
 }

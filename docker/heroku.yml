@@ -1,0 +1,11 @@
+setup:
+  addons:
+    - plan: heroku-postgresql:hobby-dev
+      as: DATABASE
+
+build:
+  docker:
+    web: sbt/Dockerfile
+
+run:
+  web: sbt run
