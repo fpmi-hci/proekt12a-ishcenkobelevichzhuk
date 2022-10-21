@@ -29,7 +29,7 @@ RUN apt-get install -q -y postgresql-client
 
 RUN mkdir /tmp/supplier_portal
 
-COPY ../../ /tmp/supplier_portal/
+COPY ./ /tmp/supplier_portal/
 
 WORKDIR supplier_portal
 
