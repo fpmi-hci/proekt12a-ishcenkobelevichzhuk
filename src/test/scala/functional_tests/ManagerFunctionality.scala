@@ -1,6 +1,7 @@
 package functional_tests
 
 import cats.effect.{Async, ConcurrentEffect, ContextShift, IO, Resource, Timer}
+import conf.app.AppConf
 import domain.product.ProductStatus
 import dto.attachment.{AttachmentCreateDto, AttachmentReadDto}
 import dto.category.CategoryDto
@@ -9,6 +10,7 @@ import dto.order.{OrderCreateDto, OrderProductDto}
 import dto.product.{ProductCreateDto, ProductReadDto, ProductUpdateDto}
 import dto.supplier.SupplierDto
 import dto.user.NonAuthorizedUserDto
+import io.circe.config.parser
 import io.circe.generic.auto._
 import org.http4s.blaze.client._
 import org.http4s.circe.CirceEntityCodec.{circeEntityDecoder, circeEntityEncoder}
@@ -35,11 +37,12 @@ class ManagerFunctionality extends AnyFunSpec with BeforeAndAfter {
   implicit val timer: Timer[IO]        = IO.timer(global)
 
   val client: Resource[IO, Client[IO]] = clientResource[IO]
+  val conf:   AppConf                  = parser.decodePathF[IO, AppConf]("app").unsafeRunSync()
 
-  private val productAPIAddress = uri"http://localhost:8088/api/product"
-  private val groupAPIAddress   = uri"http://localhost:8088/api/product_group"
-  private val authAPIAddress    = uri"http://localhost:8088/api/auth"
-  private val orderAPIAddress   = uri"http://localhost:8088/api/order"
+  private val productAPIAddress = uri"http://${conf.server.host}:${conf.server.port}/api/product"
+  private val groupAPIAddress   = uri"http://${conf.server.host}:${conf.server.port}/api/product_group"
+  private val authAPIAddress    = uri"http://${conf.server.host}:${conf.server.port}/api/auth"
+  private val orderAPIAddress   = uri"http://${conf.server.host}:${conf.server.port}/api/order"
 
   private val managerUser = NonAuthorizedUserDto("mikabele", "1234")
   private val courierUser = NonAuthorizedUserDto("mikabele_courier", "1234")
