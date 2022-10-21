@@ -2,9 +2,11 @@ name: Scheduler-CI
 
 on:
   push:
-    - 'scheduler/**'
+    paths:
+      - 'scheduler/**'
   pull_requests:
-    - 'scheduler/**'
+    paths:
+      - 'scheduler/**'
 
 jobs:
   test:
