@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - 'scheduler/**'
-  pull_requests:
+  pull_request:
     paths:
       - 'scheduler/**'
 
