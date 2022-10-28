@@ -1,0 +1,75 @@
+<!--Auth page-->
+<div>
+  <button (click)="onSignIn()">Sign In!</button>
+  <button (click)="onSignUp()">Sign Up!</button>
+</div>
+
+<!--Form for sing in-->
+<form *ngIf="isSignIn" [formGroup]="signInForm">
+  <p>Sign In</p>
+  <div>
+    <label for="login">Enter login: </label>
+    <input id="login" placeholder="login" formControlName="login">
+  </div>
+  <div>
+    <label for="password">Enter password: </label>
+    <input id="password" placeholder="password" formControlName="password">
+  </div>
+  <div>
+    <button [disabled]="!signInForm.valid" (click)="onSignInSubmit()">Go!</button>
+  </div>
+</form>
+
+<!--Form for sing up
+    name:    String,
+    surname: String,
+    phone:   String,
+    email:   String,
+    card,
+    login,
+    password,
+    repeat password
+-->
+<form *ngIf="isSignUp" [formGroup]="signUpForm">
+  <p>Sign Up</p>
+  <div>
+    <label for="name">Enter your name: </label>
+    <input id="name" placeholder="name" formControlName="name">
+  </div>
+  <div>
+    <label for="surname">Enter your surname: </label>
+    <input id="surname" placeholder="surname" formControlName="surname">
+  </div>
+  <div>
+    <label for="phone">Enter your phone number: </label>
+    <input id="phone" placeholder="phone" formControlName="phone">
+  </div>
+  <div>
+    <label for="email">Enter your E-mail: </label>
+    <input id="email" placeholder="email" formControlName="email">
+  </div>
+  <div>
+    <label for="card">Enter your card number: </label>
+    <input id="card" placeholder="card" formControlName="card">
+  </div>
+  <div>
+    <label for="login_su">Enter login: </label>
+    <input id="login_su" placeholder="login" formControlName="login">
+  </div>
+  <div>
+    <label for="password_su">Enter password: </label>
+    <input id="password_su" placeholder="password" formControlName="password">
+  </div>
+  <div>
+    <label for="rpt_password_su">Repeat your password: </label>
+    <input id="rpt_password_su" placeholder="password" formControlName="repeat_password">
+  </div>
+  <div>
+    <button [disabled]="!signUpForm.valid" (click)="onSignUpSubmit()">Go!</button>
+  </div>
+</form>
+
+<!--empty window-->
+<div *ngIf="isEmpty">
+  <p>Empty block</p>
+</div>
