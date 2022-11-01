@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
-import {UnauthorizedUser} from "../unauthorized-user";
-import {RegisterUser} from "../register-user";
-import {AuthService} from "../auth.service";
+import {UnauthorizedUser} from "../domain/unauthorized-user";
+import {RegisterUser} from "../domain/register-user";
+import {AuthService} from "../service/auth.service";
 import {pipe} from "rxjs";
 import {Router} from "@angular/router";
 

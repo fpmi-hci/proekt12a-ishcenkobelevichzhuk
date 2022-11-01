@@ -12,6 +12,10 @@ import { CartComponent } from './cart/cart.component';
 import { AuthComponent } from './auth/auth.component';
 import {HttpClientModule} from "@angular/common/http";
 import { PortalComponent } from './portal/portal.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { CriteriaComponent } from './criteria/criteria.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,11 @@ import { PortalComponent } from './portal/portal.component';
     CatalogComponent,
     CartComponent,
     AuthComponent,
-    PortalComponent
+    PortalComponent,
+    NavbarComponent,
+    CriteriaComponent,
+    ProductDetailsComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
