@@ -27,4 +27,39 @@ After this command you will see 3 running containers : DB, main server and sched
 
 ## API
 
-TODO - add request examples
+* ### POST Host/api/auth
+authenticate user with login and password
+
+* ### POST Host/api/order
+create order for customer
+
+* ### PUT Host/api/order/{id}
+cancel customer order by order id
+
+* ### GET Host/api/order
+view active orders for product
+
+***
+
+* ### POST Host/api/product 
+add product to manager`s shop
+
+* ### PUT Host/api/product
+update manager`s product
+
+* ### DELETE Host/api/product/{id}
+delete manager`s product by product id
+
+* ### GET Host/api/product
+view manager`s products
+
+* ### POST Host/api/product/search
+search product from all existing products
+
+* ### POST Host/api/product/attachment
+add attachment to product(image)
+
+* ### DELETE Host/api/product/attachment/{id}
+remove attachment from product by attachment id
+
+***
