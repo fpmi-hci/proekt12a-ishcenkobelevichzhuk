@@ -8,20 +8,20 @@ import {Observable} from "rxjs";
 })
 export class ProductService {
 
-  private getProductsRoute = 'http://localhost:8088/api/product'
+  private productsRoute = 'http://localhost:8088/api/product'
 
   constructor(private http: HttpClient) {
   }
 
-  getProducts():Observable<Product[]> {
-    return this.http.request<Product[]>("GET",this.getProductsRoute, {
-        headers:
-          new HttpHeaders({
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            //'Access-Control-Max-Age': '86400'
-          })
-        , withCredentials: true
-      })
+  getProducts(): Observable<Product[]> {
+    return this.http.request<Product[]>("GET", this.productsRoute, {
+      headers:
+        new HttpHeaders({
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          //'Access-Control-Max-Age': '86400'
+        })
+      , withCredentials: true
+    })
   }
 }
