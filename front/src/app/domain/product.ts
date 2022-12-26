@@ -1,5 +1,6 @@
 import {Category} from "./category";
 import {Supplier} from "./supplier";
+import {Status} from "./status";
 
 export interface Product {
   id:string,
@@ -8,7 +9,7 @@ export interface Product {
   supplier:Supplier,
   price:number,
   description:string,
-  status:string,
+  status:Status,
   publicationDate:string,
   attachments:string[]
 }
