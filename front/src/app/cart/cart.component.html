@@ -1,0 +1,14 @@
+<h2>Cart</h2>
+<button (click)="onSubmitOrder()">Submit</button>
+<ul>
+  <li *ngFor="let product of products">
+    <div>
+      <p>Id : {{product.id}}</p>
+      <p>Name : {{product.name}}</p>
+      <div>
+        <label for="count">Count :</label>
+        <input id="count" placeholder="Enter count of products"/>
+      </div>
+     </div>
+  </li>
+</ul>

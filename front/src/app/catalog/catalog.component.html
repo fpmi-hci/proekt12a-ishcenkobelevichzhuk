@@ -1,0 +1,20 @@
+<h2>Products</h2>
+<!--search by criteria-->
+<div>
+  <button (click)="onSearchByCriteria()">Search by criteria!</button>
+</div>
+<div *ngIf="isSearchCriteria">
+  <app-criteria></app-criteria>
+</div>
+<ul>
+  <li *ngFor="let product of products">
+    <div>
+      <p>Id : {{product.id}}</p>
+      <p>Name : {{product.name}}</p>
+      <button (click)="onSelect(product)">Details</button>
+    </div>
+    <div *ngIf="product===selectedProduct">
+      <app-product-details [product]="selectedProduct"></app-product-details>
+    </div>
+  </li>
+</ul>
